@@ -1,0 +1,111 @@
+{
+  "inputs": [
+    {
+      "id": 1,
+      "label": "Name",
+      "type": "text",
+      "placeholder": "Enter your name"
+    },
+    {
+      "id": 2,
+      "label": "Email address",
+      "type": "email",
+      "placeholder": "Enter your email address"
+    },
+    {
+      "id": 3,
+      "label": "Phone Number",
+      "type": "tel",
+      "placeholder": "Enter your Phone Number"
+    }
+  ],
+
+  "selects": [
+    {
+      "label": "Gender",
+      "options": ["Male", "Female", "Other"]
+    }
+  ],
+  "otherGender": [
+    {
+      "id": 1,
+      "gender": "Lesbian",
+      "selected": false
+    },
+    {
+      "id": 2,
+      "gender": "Gay",
+      "selected": false
+    },
+    {
+      "id": 3,
+      "gender": "Bisexual",
+      "selected": false
+    },
+    {
+      "id": 4,
+      "gender": "Transsexual",
+      "selected": false
+    },
+    {
+      "id": 5,
+      "gender": "Transgender",
+      "selected": false
+    },
+    {
+      "id": 6,
+      "gender": "Queer",
+      "selected": false
+    },
+    {
+      "id": 7,
+      "gender": "Pansexual",
+      "selected": false
+    },
+    {
+      "id": 8,
+      "gender": "Asexual",
+      "selected": false
+    },
+    {
+      "id": 9,
+      "gender": "Non-binary",
+      "selected": false
+    },
+    {
+      "id": 10,
+      "gender": "Gender fluid",
+      "selected": false
+    },
+    {
+      "id": 11,
+      "gender": "Intersexual",
+      "selected": false
+    },
+    {
+      "id": 12,
+      "gender": "Pangender",
+      "selected": false
+    },
+    {
+      "id": 13,
+      "gender": "Polisexual",
+      "selected": false
+    },
+    {
+      "id": 14,
+      "gender": "Demisexual",
+      "selected": false
+    },
+    {
+      "id": 15,
+      "gender": "Agénero",
+      "selected": false
+    }
+  ],
+  "authorization": true,
+  "game_or_video": "game",
+  "title": "Welcome to Popconvert",
+  "description": "Popconvert is a platform that allows you to create interactive videos and games to engage your audience and generate leads.",
+  "video_url": "https://www.youtube.com/embed/FAhm7A7jQro"
+}
