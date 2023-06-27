@@ -9,7 +9,7 @@ tambem como um game pra captura de leads
 ### tailwindcss
 
 
-## funcionando o projetp 
+## rodando o projeto 
 
 ### clonar o projeto
 
