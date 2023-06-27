@@ -120,13 +120,13 @@ const {
             I enhance the use of data for the necessary purposes
           </label>
         </div>
-        <button
-          @click="closeModal"
-          class="flex w-full justify-center rounded-md bg-[#9852F9] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#5D19B2] transition-all ease-linear duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-          Send
-        </button>
       </form>
+      <button
+        @click="closeModal"
+        class="flex w-full mt-4 justify-center rounded-md bg-[#9852F9] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#5D19B2] transition-all ease-linear duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+        Send
+      </button>
     </div>
   </div>
 </template>
