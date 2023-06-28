@@ -4,19 +4,22 @@
       "id": 1,
       "label": "Name",
       "type": "text",
-      "placeholder": "Enter your name"
+      "placeholder": "Enter your name",
+      "value": ""
     },
     {
       "id": 2,
       "label": "Email address",
       "type": "email",
-      "placeholder": "Enter your email address"
+      "placeholder": "Enter your email address",
+      "value": ""
     },
     {
       "id": 3,
       "label": "Phone Number",
       "type": "tel",
-      "placeholder": "Enter your Phone Number"
+      "placeholder": "Enter your Phone Number",
+      "value": ""
     }
   ],
 
@@ -104,7 +107,7 @@
     }
   ],
   "authorization": true,
-  "game_or_video": "game",
+  "game_or_video": "video",
   "title": "Welcome to Popconvert",
   "description": "Popconvert is a platform that allows you to create interactive videos and games to engage your audience and generate leads.",
   "video_url": "https://www.youtube.com/embed/FAhm7A7jQro"

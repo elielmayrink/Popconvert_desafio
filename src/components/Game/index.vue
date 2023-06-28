@@ -112,51 +112,62 @@ export default {
               class="w-[10px] h-[10px] rounded-full bg-[#9957FB]"
             ></div>
           </div>
+
           <div
-            ref="carousel"
-            class="w-[80px] lg:w-[120px] z-10 max-h-[120px] lg:max-h-[180px] flex flex-col-reverse overflow-hidden"
+            v-if="pokemonArray.length > 0"
+            class="container w-full max-w-[500px] rounded-t-3xl z-20 relative h-[300px] flex justify-around items-center bg-[#343434]"
           >
             <div
-              v-for="pokemon in pokemonArray.sort(() => Math.random())"
-              :id="`reel-${pokemon.name}`"
-              class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+              ref="carousel"
+              class="w-[80px] lg:w-[120px] z-10 max-h-[120px] lg:max-h-[180px] flex flex-col-reverse overflow-hidden"
             >
-              <img
-                class="w-full h-full object-cover scale-105"
-                :src="pokemon.image_url"
-                alt=""
-              />
+              <div
+                v-for="pokemon in pokemonArray.sort(() => Math.random())"
+                :id="`reel-${pokemon.name}`"
+                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+              >
+                <img
+                  class="w-full h-full object-cover scale-105"
+                  :src="pokemon.image_url"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[120px] flex flex-col-reverse overflow-hidden"
+              ref="carousel02"
+            >
+              <div
+                v-for="pokemon in pokemonArray.sort(() => Math.random() - 0.5)"
+                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+              >
+                <img
+                  class="w-full h-full object-cover scale-105"
+                  :src="pokemon.image_url"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div
+              class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[120px] flex flex-col-reverse overflow-hidden"
+              ref="carousel03"
+            >
+              <div
+                v-for="pokemon in pokemonArray.sort(() => Math.random() - 0.5)"
+                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+              >
+                <img
+                  class="w-full h-full object-cover scale-105"
+                  :src="pokemon.image_url"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-          <div
-            class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[120px] flex flex-col-reverse overflow-hidden"
-            ref="carousel02"
-          >
-            <div
-              v-for="pokemon in pokemonArray.sort(() => Math.random() - 0.5)"
-              class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
-            >
-              <img
-                class="w-full h-full object-cover scale-105"
-                :src="pokemon.image_url"
-                alt=""
-              />
-            </div>
-          </div>
-          <div
-            class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[120px] flex flex-col-reverse overflow-hidden"
-            ref="carousel03"
-          >
-            <div
-              v-for="pokemon in pokemonArray.sort(() => Math.random() - 0.5)"
-              class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
-            >
-              <img
-                class="w-full h-full object-cover scale-105"
-                :src="pokemon.image_url"
-                alt=""
-              />
-            </div>
+          <div class="w-7 h-7" v-else>
+            <span
+              class="animate-ping inline-flex h-full w-full rounded-full bg-[#9957FB] opacity-75"
+            ></span>
           </div>
         </div>
         <div class="flex w-full max-w-[504px] relative h-[100px]">

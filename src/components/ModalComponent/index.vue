@@ -24,6 +24,11 @@ let authorization = computed(() => store.state.form.authorization);
 let title = computed(() => store.state.form.title);
 let description = computed(() => store.state.form.description);
 let videoUrl = computed(() => store.state.form.video_url);
+let buttonFormDisabled = ref(true);
+let validEmail = false;
+let validName = false;
+let validPhoneNumber = false;
+let recived = ref(false);
 
 const gender = ref("gender");
 // ↓↓↓↓↓↓↓↓↓↓↓↓ change global state function↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
@@ -39,12 +44,41 @@ const changeGender = (gender) => {
   }
   store.commit("setForm", newForm);
 };
+const changeInputs = (input) => {
+  const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (input.type === "email" && regexEmail.test(input.value)) {
+    console.log("valid email");
+    validEmail = true;
+  } else if (input.type === "text" && input.value.length > 2) {
+    console.log("valid name");
+    validName = true;
+  } else if (input.type === "tel" && input.value.length > 10) {
+    console.log("valid phone number");
+    validPhoneNumber = true;
+  } else {
+    console.log("invalid");
+  }
+
+  if (validEmail && validName && validPhoneNumber) {
+    buttonFormDisabled.value = false;
+  } else {
+    buttonFormDisabled.value = true;
+  }
+  console.log(buttonFormDisabled.value, validEmail, validName);
+};
+
 // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ moadal open/close functions↓↓↓↓↓↓↓↓↓↓
 function closeModal() {
   isOpen.value = false;
 }
 function openModal() {
   isOpen.value = true;
+}
+
+function recivedBonus() {
+  isOpen.value = false;
+  recived.value = true;
 }
 </script>
 
@@ -61,7 +95,8 @@ function openModal() {
     <button
       type="button"
       @click="openModal"
-      class="rounded-md bg-black bg-opacity-20 w-[200px] px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+      :disabled="recived"
+      class="rounded-md bg-black bg-opacity-20 disabled:bg-slate-400 disabled:cursor-not-allowed w-[200px] px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
     >
       Get Coupon
     </button>
@@ -99,6 +134,22 @@ function openModal() {
                 (gameOrVideo === 'game' ? 'max-w-[1440px]' : 'max-w-[680px]')
               "
             >
+              <button
+                class="absolute top-4 right-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                @click="closeModal"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  fill="#837e9f"
+                  viewBox="0 0 256 256"
+                >
+                  <path
+                    d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"
+                  ></path>
+                </svg>
+              </button>
               <div v-if="gameOrVideo === 'game'" class="mt-2">
                 <GameModalComponent
                   :closeModal="closeModal"
@@ -112,6 +163,9 @@ function openModal() {
                   :authorization="authorization"
                   :title="title"
                   :description="description"
+                  :buttonFormDisabled="buttonFormDisabled"
+                  :changeInputs="changeInputs"
+                  :recivedBonus="recivedBonus"
                 />
               </div>
               <div v-else class="mt-2">
@@ -128,6 +182,9 @@ function openModal() {
                   :title="title"
                   :description="description"
                   :videoUrl="videoUrl"
+                  :buttonFormDisabled="buttonFormDisabled"
+                  :changeInputs="changeInputs"
+                  :recivedBonus="recivedBonus"
                 />
               </div>
             </DialogPanel>

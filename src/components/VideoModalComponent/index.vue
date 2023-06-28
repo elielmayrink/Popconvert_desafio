@@ -14,6 +14,9 @@ const {
   title,
   description,
   videoUrl,
+  changeInputs,
+  buttonFormDisabled,
+  recivedBonus,
 } = defineProps({
   isOpen: Boolean,
   inputs: Array,
@@ -27,6 +30,9 @@ const {
   title: String,
   description: String,
   videoUrl: String,
+  changeInputs: Function,
+  buttonFormDisabled: Boolean,
+  recivedBonus: Function,
 });
 </script>
 
@@ -77,6 +83,9 @@ const {
             :id="input.type"
             :type="input.type"
             :name="input.type"
+            @change="changeInputs(input)"
+            v-model="input.value"
+            :value="input.value"
             :key="input.type"
             :placeholder="input.placeholder"
             class="block w-full max-w-[800px] px-2 rounded-md border py-1.5 text-gray-900 shadow-sm border-[#9852F9] placeholder:text-gray-400 focus:border-[#5D19B2] sm:text-sm sm:leading-6"
@@ -139,8 +148,9 @@ const {
         </div>
       </form>
       <button
-        @click="closeModal"
-        class="flex w-full mt-4 justify-center rounded-md bg-[#9852F9] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#5D19B2] transition-all ease-linear duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        :disabled="buttonFormDisabled"
+        @click="recivedBonus"
+        class="flex w-full mt-4 justify-center rounded-md bg-[#9852F9] disabled:bg-slate-400 disabled:cursor-not-allowed px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#5D19B2] transition-all ease-linear duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
       >
         Send
       </button>
