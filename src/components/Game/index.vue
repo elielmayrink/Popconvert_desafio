@@ -115,7 +115,7 @@ export default {
 
           <div
             v-if="pokemonArray.length > 0"
-            class="container w-full max-w-[500px] rounded-t-3xl z-20 relative h-[300px] flex justify-around items-center bg-[#343434]"
+            class="container w-full max-w-[500px] z-20 relative h-[90%] flex justify-around items-center bg-[#343434]"
           >
             <div
               ref="carousel"

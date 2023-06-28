@@ -107,7 +107,7 @@
     }
   ],
   "authorization": true,
-  "game_or_video": "video",
+  "game_or_video": "game",
   "title": "Welcome to Popconvert",
   "description": "Popconvert is a platform that allows you to create interactive videos and games to engage your audience and generate leads.",
   "video_url": "https://www.youtube.com/embed/FAhm7A7jQro"
