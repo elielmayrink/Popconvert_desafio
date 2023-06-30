@@ -115,16 +115,16 @@ export default {
 
           <div
             v-if="pokemonArray.length > 0"
-            class="container w-full max-w-[500px] z-20 relative h-[90%] flex justify-around items-center bg-[#343434]"
+            class="w-full max-w-[500px] z-20 relative h-[60%] md:h-[90%] flex justify-around items-center bg-[#343434]"
           >
             <div
               ref="carousel"
-              class="w-[80px] lg:w-[120px] z-10 max-h-[120px] lg:max-h-[180px] flex flex-col-reverse overflow-hidden"
+              class="w-[80px] lg:w-[120px] z-10 max-h-[90px] md:max-h-[120px] lg:max-h-[180px] flex flex-col-reverse overflow-hidden"
             >
               <div
                 v-for="pokemon in pokemonArray.sort(() => Math.random())"
                 :id="`reel-${pokemon.name}`"
-                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[90px] md:min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
               >
                 <img
                   class="w-full h-full object-cover scale-105"
@@ -134,12 +134,12 @@ export default {
               </div>
             </div>
             <div
-              class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[120px] flex flex-col-reverse overflow-hidden"
+              class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[90px] md:max-h-[120px] flex flex-col-reverse overflow-hidden"
               ref="carousel02"
             >
               <div
                 v-for="pokemon in pokemonArray.sort(() => Math.random() - 0.5)"
-                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[90px] md:min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
               >
                 <img
                   class="w-full h-full object-cover scale-105"
@@ -149,12 +149,12 @@ export default {
               </div>
             </div>
             <div
-              class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[120px] flex flex-col-reverse overflow-hidden"
+              class="w-[80px] lg:w-[120px] z-10 lg:max-h-[180px] max-h-[90px] md:max-h-[120px] flex flex-col-reverse overflow-hidden"
               ref="carousel03"
             >
               <div
                 v-for="pokemon in pokemonArray.sort(() => Math.random() - 0.5)"
-                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
+                class="flex justify-center items-center w-[80px] lg:w-[120px] min-h-[90px] md:min-h-[120px] lg:min-h-[180px] bg-[#C6A2FC] border-[10px] border-[#7A40E9] smooth-scroll"
               >
                 <img
                   class="w-full h-full object-cover scale-105"
@@ -170,7 +170,7 @@ export default {
             ></span>
           </div>
         </div>
-        <div class="flex w-full max-w-[504px] relative h-[100px]">
+        <div class="flex w-full max-w-[504px] relative md:h-[100px] skew">
           <div
             class="w-full max-w-[292px] h-[100px] bg-[#9957FB] ring-8 ring-[#9957FB] flex-none overflow-hidden right"
           ></div>
@@ -217,6 +217,10 @@ export default {
     width: 100%;
     max-width: 480px;
   }
+
+  .skew {
+    height: 100px;
+  }
   .left {
     left: 5px;
   }
@@ -237,6 +241,9 @@ export default {
     max-width: 380px;
     height: 200px;
   }
+  .skew {
+    height: 90px;
+  }
   .left {
     left: -6px;
     width: 200px;
@@ -249,10 +256,43 @@ export default {
   }
   .footer-game {
     width: 406px;
-    margin-top: 5px;
+    margin-top: 16px;
   }
   .button-spin {
     width: 90px;
+    height: 50px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .game {
+    max-width: 310px;
+  }
+  .container {
+    width: 100%;
+    max-width: 310px;
+    height: 170px;
+  }
+  .skew {
+    height: 70px;
+  }
+  .left {
+    left: -6px;
+    width: 180px;
+    height: 60px;
+  }
+  .right {
+    right: -6px;
+    width: 180px;
+    height: 60px;
+  }
+  .footer-game {
+    width: 333px;
+    margin-top: 6px;
+  }
+  .button-spin {
+    width: 80px;
     height: 50px;
     font-size: 16px;
   }
